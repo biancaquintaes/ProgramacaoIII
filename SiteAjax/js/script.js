@@ -44,7 +44,7 @@ function constroiPagina(dados) {
 }
 
 function constroiMenu(dados) {
-  var htmlFinal = '<section class="row">'; // string que vai conter todo o HTML
+	var htmlFinal = "";
   // construimos os itens agora
   $ajaxUtils.sendGetRequest(itensHtml2, function(itensHtml2) {
     for (var i = 0, max = dados.length; i < max; i++) {
@@ -55,7 +55,6 @@ function constroiMenu(dados) {
       
       htmlFinal += html;
     }
-    htmlFinal += '</section>';
     insereHtml("#menuInicio", htmlFinal);
   }, false); // não é um JSON
 }
