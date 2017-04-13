@@ -61,4 +61,5 @@ function constroiMenu(dados) {
 // vamos construir o sendGetRequest:
 // definir a URL (dataUrl)
 // e o metodo constroiPagina
+$ajaxUtils.sendGetRequest(dataUrl, constroiMenu);
 $ajaxUtils.sendGetRequest(dataUrl, constroiPagina);
