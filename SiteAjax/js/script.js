@@ -1,5 +1,6 @@
 var dataUrl = "dados/menu.json",
     itensHtml = "template.html";
+	itensHtml2 = "templateMenu.html";
     
 // função facilitadora para inserir HTML em um elemento
 function insereHtml(seletor, html) {
@@ -39,6 +40,23 @@ function constroiPagina(dados) {
     }
     htmlFinal += '</section>';
     insereHtml("#content", htmlFinal);
+  }, false); // não é um JSON
+}
+
+function constroiMenu(dados) {
+  var htmlFinal = '<section class="row">'; // string que vai conter todo o HTML
+  // construimos os itens agora
+  $ajaxUtils.sendGetRequest(itensHtml2, function(itensHtml2) {
+    for (var i = 0, max = dados.length; i < max; i++) {
+      var html = itensHtml2,
+          titulo = dados[i].titulo,
+          
+      html = inserePropriedade(html, "titulo", titulo);
+      
+      htmlFinal += html;
+    }
+    htmlFinal += '</section>';
+    insereHtml("#menuInicio", htmlFinal);
   }, false); // não é um JSON
 }
 // vamos construir o sendGetRequest:
