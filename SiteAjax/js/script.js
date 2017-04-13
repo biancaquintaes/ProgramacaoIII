@@ -44,18 +44,18 @@ function constroiPagina(dados) {
 }
 
 function constroiMenu(dados) {
-	var htmlFinal = "";
+	var htmlFinal2 = "";
   // construimos os itens agora
   $ajaxUtils.sendGetRequest(itensHtml2, function(itensHtml2) {
     for (var i = 0, max = dados.length; i < max; i++) {
-      var html = itensHtml2,
+      var html2 = itensHtml2,
           titulo = dados[i].titulo,
           
-      html = inserePropriedade(html, "titulo", titulo);
+      html2 = inserePropriedade(html2, "titulo", titulo);
       
-      htmlFinal += html;
+      htmlFinal2 += html2;
     }
-    insereHtml("#menuInicio", htmlFinal);
+    insereHtml("#menuInicio", htmlFinal2);
   }, false); // não é um JSON
 }
 // vamos construir o sendGetRequest:
